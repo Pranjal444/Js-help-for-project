@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main-Page</title>
+    <style>
+        body {
+            margin: 0; /* Remove default margin from the body */
+            transition: none;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .checkbox {
+            position: absolute;
+            display: block;
+            height: 32px;
+            width: 32px;
+            top: 20px;
+            left: 20px;
+            z-index: 5;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .hamburger-lines {
+            display: block;
+            height: 26px;
+            width: 32px;
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 2;
+        }
+
+        .line {
+            display: block;
+            height: 4px;
+            width: 100%;
+            border-radius: 10px;
+            background: #0e2431;
+        }
+
+        .line1, .line2, .line3 {
+            transform-origin: 0% 0%;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .menu-items {
+            transform: translateX(0);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+            transform: rotate(45deg);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+            transform: scaleY(0);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+            transform: rotate(-45deg);
+        }
+
+        .menu-items {
+            padding-top: 120px;
+            box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+            height: 100vh;
+            width: 50%;
+            transform: translateX(-100%);
+            display: flex;
+            flex-direction: column;
+            margin-right: 600px; /* Adjust this margin according to your design */
+            padding-left: 50px;
+            transition: transform 0.5s ease-in-out;
+            text-align: center;
+            background-color: #fff; /* Add a background color to the menu */
+            position: fixed; /* Fix the menu position */
+            top: 0; /* Align the menu to the top */
+            left: 0; /* Align the menu to the left */
+        }
+
+        .menu-items a {
+            text-decoration: none;
+            color: #0e2431;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .header-logo {
+            float: left;
+            padding: 10px 60px;
+            width: 280px;
+            height: 140px;
+        }
+
+        .header-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        .rightoptions {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        margin-left:1000px; /* Add margin to push right options to the right */
+        overflow: hidden;
+        }
+        /* Styles for "HELP" and "SHOPPING BAG" */
+        .rightoptions a {
+        text-decoration: none;
+        color: black;
+        margin: 0 5px;
+        /* border: 3px solid lawngreen; */
+        margin-top: 20px;
+        }
+        .header-search {
+        float: right;
+        margin-top: 20px;
+        margin-right: 300px;
+        position: relative;
+    }
+
+    .header-search input {
+        width: 200px;
+        float: left;
+            padding: 10px 60px;
+        border: 1px solid #ccc;
+        width: 400px; height: 30px;
+    }
+    @media (min-width: 300px) and (max-width: 576px) {
+    .header-search {
+        float: none;
+        margin-top: 320px;
+       
+    }
+    .rightoptions {
+        margin-left: 0; /* Reset the left margin */
+        overflow: visible; /* Show all options */
+        justify-content: center; /* Center the options */
+        margin-top: 10px; /* Adjust the margin as needed */
+        font-size: 12px;
+    }
+    .rightoptions a:not([href="shoppingBasket.html"]) {
+        visibility: hidden; /* Use visibility instead of display: none; */
+        margin-left: -100px;
+    }
+}
+@media (min-width: 777px) and (max-width: 1076px) {
+    .header-search {
+        float: none;
+        margin-top: 320px;
+        /* width: 100%; Remove one of these lines */
+        width: 1000px;
+    }
+    .rightoptions {
+        margin-left: 0; /* Reset the left margin */
+        overflow: visible; /* Show all options */
+        justify-content: center; /* Center the options */
+        margin-top: 10px; /* Adjust the margin as needed */
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <!-- hamburger Icon -->
+        <div class="container nav-container">
+            <input class="checkbox" type="checkbox">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <!-- whenever we open hamburger icon this menu's will open -->
+            <div class="menu-items">
+                <a href="home.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Blogs</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="header-logo">
+                <a href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/1280px-Zara_Logo.svg.png" alt="Zara Logo" >
+                </a>
+            </div>
+            <div class="rightoptions">
+                <a href="login.html">LOG IN</a>
+                <a href="zarahelp.html">HELP</a>
+                <a href="shoppingBasket.html">SHOPPING BAG</a>
+            </div>
+            <div class="header-search">
+                <input type="search" placeholder="Search" > 
+            </div>
+        </div>
+    </header>
+</body>
+</html>
